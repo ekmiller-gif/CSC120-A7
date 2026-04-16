@@ -22,7 +22,13 @@ public class Library extends Builing implements LibraryRequirements{
      * @param title title of book to be added to collection
      */
     public void addTitle(String title){
-      collection.put(title, true);
+      if (collection.containsKey(title)){
+        throw new RuntimeException("This title is already in the library's collection!");
+      }
+      else{
+        collection.put(title, true);
+      }
+      
     }
 
     /**
@@ -30,7 +36,12 @@ public class Library extends Builing implements LibraryRequirements{
      * @param title title of book to be removed from collection
      */
     public String removeTitle(String title){
-      collection.remove(title);
+      if (collection.containsKey(title)){
+        collection.remove(title);
+      }
+      else{
+        throw new RuntimeException("This title is not in the libary's collection!");
+      }
       return title;
     } 
 
