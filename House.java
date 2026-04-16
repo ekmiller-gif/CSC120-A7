@@ -42,7 +42,12 @@ public class House extends Building implements HouseRequirements{
   * Adds a student to the list of residents
   */
   public void moveIn(Student s){
-    residents.add(s);
+    if (residents.contains(s)){
+      throw new RuntimeException("This student already lives here!");
+    }
+    else{
+      residents.add(s);
+    }
   }
 
   /**
@@ -50,7 +55,12 @@ public class House extends Building implements HouseRequirements{
   * @return s student that has moved out
   */
   public Student moveOut(Student s){
-    residents.remove(s);
+    if (residents.contains(s)){
+      residents.remove(s);
+    }
+    else{
+      throw new RuntimeException("This student doesn't live here!");
+    }
     return s;
   }
 
