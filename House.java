@@ -88,6 +88,9 @@ public class House extends Building implements HouseRequirements{
     gardiner.moveIn(em);
     gardiner.moveIn(de);
     System.out.println(gardiner.residents.contains(de));
+
+    gardiner.moveOut(de);
+    System.out.print(gardiner.isResident(de));
   }
 
 

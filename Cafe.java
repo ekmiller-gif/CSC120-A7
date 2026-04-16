@@ -17,13 +17,21 @@ public class Cafe extends Building implements CafeRequirements{
     */
     public Cafe(String name, String address, int nFloors) {
         super(name, address, nFloors);
-        this.nCoffeeOunces = nCoffeeOunces;
-        this.nSugarPackets = nSugarPackets;
-        this.nCreams = nCreams;
-        this.nCups = nCups;
+        this.nCoffeeOunces = 100;
+        this.nSugarPackets = 50;
+        this.nCreams = 50;
+        this.nCups = 50;
         System.out.println("You have built a cafe: ☕");
     }
     
+    public void sellCoffee(int size, int nSugarPackets, int nCreams){
+        int nCoffeeOunces = this.nCoffeeOunces - size;
+        int nSugarPackets = this.nSugarPackets - nSugarPackets;
+        int nCreams = this.nCreams - nCreams;
+
+
+    }
+
     public static void main(String[] args) {
         Cafe cc = new Cafe("CC Cafe", "1 Chapin Way", 1);
     }
