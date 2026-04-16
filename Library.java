@@ -45,8 +45,32 @@ public class Library extends Builing implements LibraryRequirements{
       return title;
     } 
 
+    /**
+     * Tells whether a book is in the library's collection
+     * @param title title of book
+     * @return boolean true if the title appears as a key in the Libary's collection, false otherwise
+     */
+    public boolean containsTitle(String title){
+
+    }
+
+    /**
+     * Tells whether a book in the library is available
+     * @param title title of book
+     * @return boolean true if the title is currently available, false otherwise
+     */
+    public boolean isAvailable(String title){
+
+    } 
+    /**
+     * Prints the entire collection of a library by title and checkout status
+     */
+    public void printCollection(){
+
+    } 
+
     public static void main(String[] args) {
-      new Library();
+      new Library("Neilson Library", "1 Neilson Dr", 4);
     }
   
   }
