@@ -31,7 +31,6 @@ public class Library extends Building implements LibraryRequirements{
       else{
         collection.put(title, Boolean.TRUE);
       }
-      
     }
 
     /**
@@ -76,18 +75,6 @@ public class Library extends Building implements LibraryRequirements{
       }else{
           throw new RuntimeException("This book does not belong to this library!");
       }
-      
-      // if (collection.contains(title)){
-      //   Boolean status = collection.get(title);
-      //   if (status.equals(Boolean.FALSE)){
-      //     collection.replace(title, Boolean.FALSE, Boolean.TRUE);
-      //   } else{
-      //     throw new RuntimeException("This title has alreasy been returned.");
-      //   }
-      // }
-      // else{
-      //   throw new RuntimeException("This book does not belong to this library.");
-      // }
     }
 
     /**
@@ -118,22 +105,20 @@ public class Library extends Building implements LibraryRequirements{
       }
     } 
 
-    /**
-     * Prints the entire collection of a library by title and checkout status
-     */
-    public void printCollection(){
-      
-
-      collection.forEach((title, value) -> { 
-        String availability;
-        if (collection.get(title).equals(Boolean.TRUE)){
-          availability = "available";
-        } else{
-          availability = "unavailable";
+      /**
+       * Prints the entire collection of a library by title and checkout status
+       */
+      public void printCollection(){
+        collection.forEach((title, value) -> { 
+          String availability;
+          if (collection.get(title).equals(Boolean.TRUE)){
+            availability = "available";
+          } else{
+            availability = "unavailable";
+          }
+          System.out.println(title + ":" + availability); }); 
         }
-        System.out.println(title + ":" + availability); }); 
-      }
-    
+      
 
     public static void main(String[] args) {
       Library neilson = new Library("Neilson Library", "1 Neilson Dr", 4);
