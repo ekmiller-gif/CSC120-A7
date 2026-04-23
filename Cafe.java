@@ -64,8 +64,7 @@ public class Cafe extends Building implements CafeRequirements{
      * @param nCreams number of servings of cream used in the cup  of coffee sold
      */
     public void sellCoffee(int size, int nSugarPackets, int nCreams){
-        this.restock(nCoffeeOunces, nSugarPackets, nCreams, nCups);
-
+        
         int newCoffeeOunces = nCoffeeOunces - size;
         setCoffeeOunces(newCoffeeOunces);
 
@@ -77,6 +76,8 @@ public class Cafe extends Building implements CafeRequirements{
 
         int newCups = this.nCups - 1;
         setCups(newCups);
+        
+        this.restock(newCoffeeOunces , newSugarPackets, newCreams, newCups);
     }
 
     /**
@@ -90,13 +91,13 @@ public class Cafe extends Building implements CafeRequirements{
         if (nCoffeeOunces <= 0){   
             int newCoffeeOunces = 100;
             setCoffeeOunces(newCoffeeOunces);
-        }else if(nSugarPackets <= 0){
+        }if(nSugarPackets <= 0){
             int newSugarPackets = 50;
             setSugarPackets(newSugarPackets);
-        }else if (nCreams <= 0){
+        }if (nCreams <= 0){
             int newCreams = 50;
             setCreams(newCreams);
-        }else if(nCups <= 0){
+        }if(nCups <= 0){
             int newCups = 50;
             setCups(newCups);
         }
@@ -104,7 +105,16 @@ public class Cafe extends Building implements CafeRequirements{
 
     public static void main(String[] args) {
         Cafe cc = new Cafe("CC Cafe", "1 Chapin Way", 1);
-        cc.sellCoffee(12, 2, 1);
+
+        // cc.showOptions();
+        cc.sellCoffee(100, 50, 50);
+
+        System.out.println(cc.nCoffeeOunces);
+        System.out.println(cc.nSugarPackets);
+        System.out.println(cc.nCreams);
+        System.out.println(cc.nCups);
+
+        cc.restock(0,0,0,49);
         System.out.println(cc.nCoffeeOunces);
         System.out.println(cc.nSugarPackets);
         System.out.println(cc.nCreams);

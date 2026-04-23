@@ -1,0 +1,2 @@
+Edited restock() to fully restock items (previously only restocked coffee)
+and changed call of restock in sellCoffee() so that items are automatically restocked when they hit zero after a sale
